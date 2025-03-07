@@ -31,11 +31,11 @@ def load_documents():
 
 def split_documents(documents: list[Document]):
     text_splitter = RecursiveCharacterTextSplitter(
-        chunk_size=800,
-        chunk_overlap=80,
-        length_function=len,
-        is_separator_regex=False,
-    )
+    chunk_size=1000,  # Increase from 800
+    chunk_overlap=150,  # Increase overlap to maintain context
+    length_function=len,
+    is_separator_regex=False,
+)
     return text_splitter.split_documents(documents)
 
 def add_to_chroma(chunks: list[Document]):
